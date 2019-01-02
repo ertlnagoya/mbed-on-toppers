@@ -1,5 +1,9 @@
 #pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 /**
  * Provided interface
  */
@@ -14,4 +18,20 @@ int  http_receive_file_poll(const char **filename, uint32_t *size); // File name
 /**
  * Required interface
  */
+
+/* network library*/
+char* toppers_mbed_network_getmacaddress(void);
+char* toppers_mbed_network_getipaddress(void);
+char* toppers_mbed_network_getnetworkmask(void);
+char* toppers_mbed_network_getgateway(void);
+
+/* socket library*/
+int toppers_mbed_socket_connect(const char *server, uint16_t port);
+int toppers_mbed_socket_send(const void *http_req);
+int toppers_mbed_socket_receive(const void *rcvbuff);
+void toppers_mbed_socket_disconnect(void);
+
+#ifdef __cplusplus
+}
+#endif
 

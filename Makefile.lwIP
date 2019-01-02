@@ -48,9 +48,9 @@ ALL_CXX_OBJS += ${LWIPIFDIR}/EthernetInterface.o \
 				${NETSOCKDIR}/NetworkStack.o \
 				${NETSOCKDIR}/Socket.o \
 				${NETSOCKDIR}/SocketAddress.o \
-				${NETSOCKDIR}/UDPSocket.o
+				${NETSOCKDIR}/UDPSocket.o \
+				${NETSOCKDIR}/TCPSocket.o
 
 # DhcpServer
 CFLAGS += -Irepos/DhcpServer
 ALL_CXX_OBJS += repos/DhcpServer/DhcpServer.o
-
