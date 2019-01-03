@@ -31,6 +31,12 @@ int toppers_mbed_socket_send(const void *http_req);
 int toppers_mbed_socket_receive(const void *rcvbuff);
 void toppers_mbed_socket_disconnect(void);
 
+/* ssl library*/
+int toppers_mbed_ssl_init(const void *server);
+int toppers_mbed_socket_ssl_send(const void *http_req);
+int toppers_mbed_socket_ssl_receive(const void *rcvBuff);
+int toppers_mbed_ssl_free(void);	
+
 #ifdef __cplusplus
 }
 #endif

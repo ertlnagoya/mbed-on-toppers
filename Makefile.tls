@@ -1,0 +1,88 @@
+#
+# Include this Makefile for mbedTLS support
+#
+
+# EthernetInterface over lwIP (FEATURE_LWIP)
+MBEDTLS_ROOT_DIR = mbed-os/features/mbedtls
+MBEDTLS_LIB_DIR = $(MBEDTLS_ROOT_DIR)/inc/mbedtls
+MBEDTLS_SRC_DIR = $(MBEDTLS_ROOT_DIR)/src
+
+ALL_OBJS += $(MBEDTLS_SRC_DIR)/aes.o \
+	    $(MBEDTLS_SRC_DIR)/aesni.o \
+	    $(MBEDTLS_SRC_DIR)/arc4.o \
+	    $(MBEDTLS_SRC_DIR)/asn1parse.o \
+	    $(MBEDTLS_SRC_DIR)/asn1write.o \
+	    $(MBEDTLS_SRC_DIR)/base64.o \
+	    $(MBEDTLS_SRC_DIR)/bignum.o \
+	    $(MBEDTLS_SRC_DIR)/blowfish.o \
+	    $(MBEDTLS_SRC_DIR)/camellia.o \
+	    $(MBEDTLS_SRC_DIR)/ccm.o \
+	    $(MBEDTLS_SRC_DIR)/certs.o \
+	    $(MBEDTLS_SRC_DIR)/cipher.o \
+	    $(MBEDTLS_SRC_DIR)/cipher_wrap.o \
+	    $(MBEDTLS_SRC_DIR)/cmac.o \
+	    $(MBEDTLS_SRC_DIR)/ctr_drbg.o \
+	    $(MBEDTLS_SRC_DIR)/debug.o \
+	    $(MBEDTLS_SRC_DIR)/des.o \
+	    $(MBEDTLS_SRC_DIR)/dhm.o \
+	    $(MBEDTLS_SRC_DIR)/ecdh.o \
+	    $(MBEDTLS_SRC_DIR)/ecdsa.o \
+	    $(MBEDTLS_SRC_DIR)/ecjpake.o \
+	    $(MBEDTLS_SRC_DIR)/ecp.o \
+	    $(MBEDTLS_SRC_DIR)/ecp_curves.o \
+	    $(MBEDTLS_SRC_DIR)/entropy.o \
+	    $(MBEDTLS_SRC_DIR)/entropy_poll.o \
+	    $(MBEDTLS_SRC_DIR)/error.o \
+	    $(MBEDTLS_SRC_DIR)/gcm.o \
+	    $(MBEDTLS_SRC_DIR)/havege.o \
+	    $(MBEDTLS_SRC_DIR)/hmac_drbg.o \
+	    $(MBEDTLS_SRC_DIR)/md.o \
+	    $(MBEDTLS_SRC_DIR)/md_wrap.o \
+	    $(MBEDTLS_SRC_DIR)/md2.o \
+	    $(MBEDTLS_SRC_DIR)/md4.o \
+	    $(MBEDTLS_SRC_DIR)/md5.o \
+	    $(MBEDTLS_SRC_DIR)/memory_buffer_alloc.o \
+	    $(MBEDTLS_SRC_DIR)/net_sockets.o \
+	    $(MBEDTLS_SRC_DIR)/oid.o \
+	    $(MBEDTLS_SRC_DIR)/padlock.o \
+	    $(MBEDTLS_SRC_DIR)/pem.o \
+	    $(MBEDTLS_SRC_DIR)/pk.o \
+	    $(MBEDTLS_SRC_DIR)/pk_wrap.o \
+	    $(MBEDTLS_SRC_DIR)/pkcs5.o \
+	    $(MBEDTLS_SRC_DIR)/pkcs11.o \
+	    $(MBEDTLS_SRC_DIR)/pkcs12.o \
+	    $(MBEDTLS_SRC_DIR)/pkparse.o \
+	    $(MBEDTLS_SRC_DIR)/pkwrite.o \
+	    $(MBEDTLS_SRC_DIR)/platform.o \
+	    $(MBEDTLS_SRC_DIR)/ripemd160.o \
+	    $(MBEDTLS_SRC_DIR)/rsa.o \
+	    $(MBEDTLS_SRC_DIR)/sha1.o \
+	    $(MBEDTLS_SRC_DIR)/sha256.o \
+	    $(MBEDTLS_SRC_DIR)/sha512.o \
+	    $(MBEDTLS_SRC_DIR)/ssl_cache.o \
+	    $(MBEDTLS_SRC_DIR)/ssl_ciphersuites.o \
+	    $(MBEDTLS_SRC_DIR)/ssl_cli.o \
+	    $(MBEDTLS_SRC_DIR)/ssl_cookie.o \
+	    $(MBEDTLS_SRC_DIR)/ssl_srv.o \
+	    $(MBEDTLS_SRC_DIR)/ssl_ticket.o \
+	    $(MBEDTLS_SRC_DIR)/ssl_tls.o \
+	    $(MBEDTLS_SRC_DIR)/threading.o \
+	    $(MBEDTLS_SRC_DIR)/timing.o \
+	    $(MBEDTLS_SRC_DIR)/version.o \
+	    $(MBEDTLS_SRC_DIR)/version_features.o \
+	    $(MBEDTLS_SRC_DIR)/x509.o \
+	    $(MBEDTLS_SRC_DIR)/x509_create.o \
+	    $(MBEDTLS_SRC_DIR)/x509_crl.o \
+	    $(MBEDTLS_SRC_DIR)/x509_crt.o \
+	    $(MBEDTLS_SRC_DIR)/x509_csr.o \
+	    $(MBEDTLS_SRC_DIR)/x509write_crt.o \
+	    $(MBEDTLS_SRC_DIR)/x509write_csr.o \
+	    $(MBEDTLS_SRC_DIR)/xtea.o 
+
+CFLAGS += -I$(MBEDTLS_ROOT_DIR) \
+       	  -I$(MBEDTLS_ROOT_DIR)/inc \
+       	  -I$(MBEDTLS_LIB_DIR)/include \
+	  -I$(MBEDTLS_SRC_DIR) \
+	  -DMBEDTLS_TEST_NULL_ENTROPY \
+	  -DMBEDTLS_ENTROPY_C \
+	  -DMBEDTLS_NO_DEFAULT_ENTROPY_SOURCES

@@ -23,7 +23,6 @@ CFLAGS += -I${DIR}/dummy
 ALL_CXX_OBJS += dummy/rt_CMSIS.o dummy/Thread.o
 ALL_OBJS += dummy/syscall.o dummy/us_ticker.o
 CFLAGS += -I${KERNELDIR}/include
-
 # FIXME: hard-coded files for EV3RT
 CFLAGS += -I${KERNELDIR}/target/ev3_gcc \
 		  -I${KERNELDIR}/arch \
@@ -53,8 +52,13 @@ ALL_CXX_OBJS += mbed-os/platform/retarget.o \
 ALL_OBJS += mbed-os/platform/mbed_error.o \
 			mbed-os/platform/mbed_interface.o
 
+# for mbedssl library
+CFLAGS += -I${DIR}/mbed-os/features/mbedtls/inc \
+	  -I${DIR}/mbed-os/features/mbedtls/inc/mbedtls
+
 #include Makefile.USBHost
 include Makefile.lwIP
+include Makefile.tls
 
 #
 # Include header and source files
